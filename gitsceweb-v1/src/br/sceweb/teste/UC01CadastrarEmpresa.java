@@ -11,9 +11,8 @@ import br.sceweb.model.Empresa;
 import br.sceweb.model.EmpresaDAO;
 
 /*
- * verifica o comportamento do sistema no cadastro de empresa
+ * Verifica o comportamento do sistema no cadastro da empresa 
  */
-
 public class UC01CadastrarEmpresa {
     static EmpresaDAO empresaDAO;
     static Empresa empresa;
@@ -32,8 +31,10 @@ public class UC01CadastrarEmpresa {
 		empresa.setEndereco("rua taquari");
 		empresa.setTelefone("2222");
 	}
+	//FB = Fluxo Basico | FA = Fluxo Alternativo
 	/**
 	 * obj - verificar o comportamento do sistema na inclusão de uma empresa com sucesso
+	 * 
 	 */
 	@Test
 	public void CT01UC01FBCadastra_empresa_com_sucesso() {
@@ -48,7 +49,7 @@ public class UC01CadastrarEmpresa {
 	@Test(expected = RuntimeException.class)
 	public void CT02UC01A2Cadastra_empresa_cnpj_ja_cadastrado() {
 		empresaDAO.adiciona(empresa);
-		assertEquals(0,empresaDAO.adiciona(empresa));
+		assertEquals(0, empresaDAO.adiciona(empresa));
 	}
 	/**
 	 * obj - verificar o comportamento do sistema no cadastro com cnpj invalido
@@ -60,7 +61,7 @@ public class UC01CadastrarEmpresa {
 			empresa2.setCnpj("8942423200018");
 			fail("deveria disparar uma exception");
 		} catch (Exception e) {
-			assertEquals("CNPJ inválido!",e.getMessage());
+			assertEquals("CNPJ inválido!", e.getMessage());
 		}
 	}
 	/**

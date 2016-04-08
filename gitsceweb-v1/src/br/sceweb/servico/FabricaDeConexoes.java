@@ -12,7 +12,7 @@ public class FabricaDeConexoes {
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			return DriverManager.getConnection(url, "root", "aluno");
+			return DriverManager.getConnection(url, "root", "");
 		} catch (Exception e) {
 			logger.info("SQLException na classe FabricaDeConexoes causa: " + e.getMessage());
 			throw new RuntimeException(e);
