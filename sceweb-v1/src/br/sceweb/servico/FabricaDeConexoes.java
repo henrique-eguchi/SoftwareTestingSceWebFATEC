@@ -1,8 +1,7 @@
 package br.sceweb.servico;
 
-import java.sql.Connection;
 import java.sql.DriverManager;
-
+import com.mysql.jdbc.Connection;
 import org.apache.log4j.Logger;
 
 public class FabricaDeConexoes {
@@ -12,7 +11,7 @@ public class FabricaDeConexoes {
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			return DriverManager.getConnection(url, "root", "aluno");
+			return (Connection) DriverManager.getConnection(url, "root", "aluno");
 		} catch (Exception e) {
 			logger.info("SQLException na classe FabricaDeConexoes causa: " + e.getMessage());
 			throw new RuntimeException(e);

@@ -1,7 +1,7 @@
 package br.sceweb.model;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
+import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.PreparedStatement;
 import java.sql.SQLException;
 
 import org.apache.log4j.Logger;
@@ -24,8 +24,9 @@ public class ConvenioDAO {
 			ps = (PreparedStatement) conn
 					.prepareStatement("insert into convenio (empresa_cnpj, dataInicio, dataFim) values(?,?,?)");
 			ps.setString(1, convenio.getCnpj());
-			ps.setString(2, convenio.getDataInicio().toString("YYYY‐MM‐dd"));
-			ps.setString(3, convenio.getDataTermino().toString("YYYY‐MM‐dd"));
+			logger.info("DATA = " + convenio.getDataInicio().toString("YYYY-MM-DD"));
+			ps.setString(2, convenio.getDataInicio().toString("YYYY‐MM‐DD HH:MM:SS"));
+			ps.setString(3, convenio.getDataTermino().toString("YYYY‐MM‐DD HH:MM:SS"));
 			codigoRetorno = ps.executeUpdate();
 			logger.info("codigo de retorno do metodo adiciona convenio = " + codigoRetorno);
 			ps.close();
