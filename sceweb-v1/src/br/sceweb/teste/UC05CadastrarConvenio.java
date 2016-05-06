@@ -10,15 +10,19 @@ import br.sceweb.model.Convenio;
 import br.sceweb.model.ConvenioDAO;
 
 public class UC05CadastrarConvenio {
-	Convenio convenio;
-	ConvenioDAO convenioDAO;
+	static Convenio convenio;
+	static ConvenioDAO convenioDAO;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
+		convenioDAO = new ConvenioDAO();
+		convenio = new Convenio("a", "b", "c");
 	}
+	
 	@Test
 	public void CT01UC05FBCadastrar_convenio_com_sucesso() {
-		assertEquals("convenio cadastrado com sucesso",convenioDAO.adiciona(convenio));
+		//assertEquals(1, convenioDAO.adiciona(convenio));
+		assertEquals(1, convenioDAO.adiciona(convenio));
 	}
 
 	@AfterClass
