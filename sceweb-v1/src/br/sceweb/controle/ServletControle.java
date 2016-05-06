@@ -26,7 +26,7 @@ public class ServletControle extends HttpServlet {
 	 */
 	public ServletControle() {
 		// TODO Auto-generated constructor stub
-
+//teste
 	}
 
 	/**
